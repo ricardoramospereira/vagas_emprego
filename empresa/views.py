@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from .models import Tecnologias, Empresa
 from django.contrib import messages
 from django.contrib.messages import constants
@@ -47,7 +47,18 @@ def nova_empresa(request):
     
 
 def empresas(request):
+    tecnologias_filtrar = request.GET.get('tecnologias')
+    nome_filtar = request.GET.get('nome')
     empresas = Empresa.objects.all()
+
+    if tecnologias_filtrar:
+        empresas = empresas.filter(tecnologias=tecnologias_filtrar)
+
+    if nome_filtar:
+        empresas = empresas.filter(nome__icontains=nome_filtar)
+
+
+    
     tecnologias = Tecnologias.objects.all()
 
     context = {
@@ -57,8 +68,19 @@ def empresas(request):
 
     return render(request, 'empresas.html', context)
 
+'''def empresas(request):
+    empresas = Empresa.objects.all()
+
+    return render(request, 'empresas.html', {'empresas': empresas})'''
+
 def excluir_empresa(request, id):
     empresa = Empresa.objects.get(id=id)
     empresa.delete()
     messages.add_message(request, constants.SUCCESS, 'Empresa exluida com sucesso.')
     return redirect('/empresas')
+
+def empresa(request, id):
+    empresa_unica = get_object_or_404(Empresa, id=id)
+    empresas = Empresa.objects.all()
+    tecnologias = Tecnologias.objects.all()
+    return render(request, 'empresa_unica.html', {'empresa': empresa_unica, 'tecnologias': tecnologias, 'empresas': empresas})

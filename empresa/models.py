@@ -35,6 +35,9 @@ class Empresa(models.Model):
 
     def __str__(self):
         return self.nome
+    
+    def qtd_vagas(self):
+        return Vagas.objects.filter(empresa_id=self.id).count()
 
 
 class Vagas(models.Model):
