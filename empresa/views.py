@@ -19,7 +19,7 @@ def nova_empresa(request):
         caracteristicas = request.POST.get('caracteristicas')
         logo            = request.FILES.get('logo')
 
-        if len(nome.strip()) == 0 or len(email.strip()) == 0 or len(cidade.strip()) == 0 or len(endereco.strip()) == 0 or len(tecnologias.strip()) == 0 or len(caracteristicas.strip()) == 0:
+        if (len(nome.strip()) == 0) or (len(email.strip()) == 0) or (len(cidade.strip()) == 0) or (len(endereco.strip()) == 0) or (len(caracteristicas.strip()) == 0):
             messages.add_message(request, constants.ERROR, 'Não pode conter espaços vazios')
             return redirect('/nova_empresa')
 
@@ -31,3 +31,34 @@ def nova_empresa(request):
             messages.add_message(request, constants.ERROR, 'Nicho de mercado inválido')
             return redirect('/nova_empresa')
 
+        empresa = Empresa(logo=logo,
+                          nome=nome,
+                          email=email,
+                          cidade=cidade,
+                          endereco=endereco,
+                          nicho_mercado=nicho,
+                          caracteristica_empresa=caracteristicas
+                          )
+        empresa.save()
+        empresa.tecnologias.add(*tecnologias)
+        empresa.save()
+        messages.add_message(request, constants.SUCCESS, 'Empresa cadastrada com sucesso')
+        return redirect('/nova_empresa')
+    
+
+def empresas(request):
+    empresas = Empresa.objects.all()
+    tecnologias = Tecnologias.objects.all()
+
+    context = {
+        "empresas": empresas,
+        "tecnologias": tecnologias
+    }
+
+    return render(request, 'empresas.html', context)
+
+def excluir_empresa(request, id):
+    empresa = Empresa.objects.get(id=id)
+    empresa.delete()
+    messages.add_message(request, constants.SUCCESS, 'Empresa exluida com sucesso.')
+    return redirect('/empresas')
