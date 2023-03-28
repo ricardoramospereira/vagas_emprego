@@ -52,7 +52,30 @@
     <hr>
     <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-lg btn-orange">Nova vaga</a>
     <div class="row">
-        vagas
+        {% for vaga in vagas %}
+        <div class="col-md">
+            <div class="box-vagas">
+                <div class="header-vagas">
+                    {{vaga.titulo}}
+                </div>
+                <div class="body-vagas">
+                    <div class="row">
+                        <div class="col-md">
+                            <label class="paragrafo">Nível:</label>
+                            <br>
+                            <label class="paragrafo paragrafo-orange">{{vaga.get_nivel_experiencia_display}}</label>
+                        </div>
+                        <div class="col-md">
+                            <label class="paragrafo">Status <img
+                                    src="{% static 'empresa/img/flag.png' %}" width="30" height="30"></label>
+                            <br>
+                            <label class="paragrafo paragrafo-orange">{{vaga.get_status_display}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 <br>
@@ -120,7 +143,7 @@
                             <label>Empresa:</label>
                             <select name="empresa" class="form-select">
                                 {% for empresa_iter in empresas %}
-                                    <option {% if empresa.id == empresa_iter.id %} selected {% endif %} value="{{empresa_iter.id}}">{{empresa_iter}}</option>
+                                <option value="{{empresa_iter.id}}">{{empresa_iter}}</option>
                                 {% endfor %}
                             </select>
                         </div>
