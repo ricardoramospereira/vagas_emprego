@@ -51,33 +51,37 @@
                 </tr>
 
                 {% for empresa in empresas %}
-                    
-                    <tr {% if not forloop.counter|is_par %} class="tabela-linha" {% endif %}>
-                        <td>{{empresa.nome}}</td>
-                        <td>{{empresa.endereco}}</td>
-                        <td>
 
-                            <select class="form-select">
-                                {% for tech in empresa.tecnologias.all %}
-                                <option>{{tech}}</option>
-                                {% endfor %}
-                            </select>
+                <tr {% if not forloop.counter|is_par %} class="tabela-linha" {% endif %}>
+                    <td>
+                        <a href="{% url 'empresa_unica' empresa.id %}">
+                            {{empresa.nome}}
+                        </a>
+                    </td>
+                    <td>{{empresa.endereco}}</td>
+                    <td>
 
-                        </td>
-                        <td>
-                            {% if empresa.qtd_vagas <= 0 %}
-                                <img src="{% static 'empresa/img/bandeira-vermelha.png' %}" width="20" height="20" alt="">
+                        <select class="form-select">
+                            {% for tech in empresa.tecnologias.all %}
+                            <option>{{tech}}</option>
+                            {% endfor %}
+                        </select>
+
+                    </td>
+                    <td>
+                        {% if empresa.qtd_vagas <= 0 %} <img src="{% static 'empresa/img/bandeira-vermelha.png' %}"
+                            width="20" height="20" alt="">
                             {% else %}
-                                <img src="{% static 'empresa/img/flag.png' %}" width="20" height="20" alt="">
+                            <img src="{% static 'empresa/img/flag.png' %}" width="20" height="20" alt="">
                             {% endif %}
 
                             {{empresa.qtd_vagas}}
-                        </td>
-                        <td>
-                            <a href="{% url 'excluir_empresa' empresa.id %}" class="btn-excluir">Excluir empresa</a>
-                        </td>
-                    </tr>
-               {% endfor %}
+                    </td>
+                    <td>
+                        <a href="{% url 'excluir_empresa' empresa.id %}" class="btn-excluir">Excluir empresa</a>
+                    </td>
+                </tr>
+                {% endfor %}
 
             </table>
         </div>
