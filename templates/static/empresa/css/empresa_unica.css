@@ -35,3 +35,14 @@ label {
 .paragrafo-orange {
     color: #ED8554;
 }
+
+.btn-tarefas {
+    float: right;
+    text-decoration: none;
+    color: white;
+    background-color: #7D2948;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+   
+}
