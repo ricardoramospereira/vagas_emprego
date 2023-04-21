@@ -14,6 +14,11 @@ The purpose of the software is to register companies by category of interest in 
 ## Front end
 * Bootstrap 5
 
+# layout
+![job1](https://user-images.githubusercontent.com/103947016/233647687-d40520c0-bb90-4157-b27e-ef44599200ea.png)
+![job2](https://user-images.githubusercontent.com/103947016/233647705-f17c11a5-485c-4071-aa4c-8be25fb5181d.png)
+![job3](https://user-images.githubusercontent.com/103947016/233647721-7ca13283-f9ff-4c34-8250-78fa0694fd2c.png)
+
 # How to run the project
 Requirements = python==3.9.12 | django==4.1.7
 
