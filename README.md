@@ -22,7 +22,7 @@ Requirements = python==3.9.12 | django==4.1.7
 clone repository git clone https://github.com/ricardoramospereira/vagas_emprego.git
 
 # install dependencies
-Yarn install
+pip install
 ```
 
 # author
