@@ -1,6 +1,8 @@
 # jobs
 [![Bower](https://img.shields.io/bower/l/django)](https://github.com/ricardoramospereira/vagas_emprego/blob/main/LICENSE)
 
+⚠️ Adjusting navigation links and setting home page
+
 # About the project
 Project that aims to organize job vacancies, requirements. And also select the technologies that you already mastered and those that need to be studied. 
 The purpose of the software is to register companies by category of interest in order to organize their ability to be suitable for a given vacancy.
