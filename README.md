@@ -9,7 +9,7 @@ The purpose of the software is to register companies by category of interest in 
 ## Back end
 * Python==3.9.12
 * Django==4.1.7
-* Pillow==9.4.0
+
 
 ## Front end
 * Bootstrap 5
@@ -27,7 +27,7 @@ Requirements = python==3.9.12 | django==4.1.7
 clone repository git clone https://github.com/ricardoramospereira/vagas_emprego.git
 
 # install dependencies
-pip install
+Pillow==9.4.0
 ```
 
 # author
