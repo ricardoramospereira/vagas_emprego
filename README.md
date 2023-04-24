@@ -14,6 +14,9 @@ The purpose of the software is to register companies by category of interest in 
 ## Front end
 * Bootstrap 5
 
+# Database
+* sqlite3
+
 # layout
 ![job1](https://user-images.githubusercontent.com/103947016/233647687-d40520c0-bb90-4157-b27e-ef44599200ea.png)
 ![job2](https://user-images.githubusercontent.com/103947016/233647705-f17c11a5-485c-4071-aa4c-8be25fb5181d.png)
