@@ -14,6 +14,7 @@
     </section>
     {% endfor %}
     {% endif %}
+
     <div class="row">
         <div class="col-md-3">
             <img width="100%" src="{{empresa.logo.url}}">
@@ -21,7 +22,7 @@
         <div class="col-md">
             <h1 class="titulo">{{empresa.nome}}</h1>
             <p class="paragrafo">{{empresa.endereco}}</p>
-            
+
             <a href="" class="btn-tarefas">Tarefas</a>
 
         </div>
@@ -40,7 +41,6 @@
                 <option>{{tech}}</option>
                 {% endfor %}
             </select>
-
         </div>
     </div>
     <br>
@@ -69,8 +69,8 @@
                             <label class="paragrafo paragrafo-orange">{{vaga.get_nivel_experiencia_display}}</label>
                         </div>
                         <div class="col-md">
-                            <label class="paragrafo">Status <img
-                                    src="{% static 'empresa/img/flag.png' %}" width="30" height="30"></label>
+                            <label class="paragrafo">Status <img src="{% static 'empresa/img/flag.png' %}" width="30"
+                                    height="30"></label>
                             <br>
                             <label class="paragrafo paragrafo-orange">{{vaga.get_status_display}}</label>
                         </div>
